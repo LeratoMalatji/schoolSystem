@@ -2,8 +2,7 @@ package org.redi.backend;
 
 import javax.persistence.*;
 
-@Entity //required to be saved
-@Table(name = "students") //if your table is called student, then this is not required!
+@Entity(name = "students") //required to be saved
 public class Student{
     //you can get hibernate to create the id for you. You must use the @id annotation to tell hibernate this is the
     //primary key

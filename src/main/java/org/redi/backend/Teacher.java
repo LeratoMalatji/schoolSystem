@@ -2,8 +2,7 @@ package org.redi.backend;
 
 import javax.persistence.*;
 
-@Entity //required for pesistence
-@Table(name = "teachers") //if your table is called teacher, then this is not required!
+@Entity(name = "teachers") //required to be saved
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
