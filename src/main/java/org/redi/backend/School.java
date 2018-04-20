@@ -8,7 +8,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class Redi {
+public class School {
 
     public void showStudents(){
         Session session = HibernateUtil.getSessionFactory().openSession(); //session is an unit of work to perform
@@ -265,7 +265,7 @@ public class Redi {
     }
 
     public static void main(String [] args){
-        Redi school = new Redi();
+        School school = new School();
         school.showMenu();
     }
 

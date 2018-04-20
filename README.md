@@ -1,12 +1,17 @@
 # School Example
 
-A sample school application to demonstrate using Hibernate 4.3. It is a simple commandline application to show CRUD 
-(creating, reading, updating, and deleting) data from the redi.sqlite database in the root directory.
+A school application to demonstrate using [Hibernate 4.3](http://hibernate.org/orm/documentation/4.3/). The first action
+will be a bit slow to run as the database connection is initialised (creation of sessionfactory).
+
+It is a simple commandline application to show CRUD actions
+(creating, reading, updating, and deleting) on data from the *redi.sqlite* database in the root directory.
 
 !["screenshot"](img/screenshot.jpg)
 
 To use sqlite, an [extra JAR](https://github.com/EnigmaBridge/hibernate4-sqlite-dialect) is required to specify the 
-SQL dialect used, because it is not built into Hibernate like the other database providers.
+SQL dialect used, because it does not built-in support in Hibernate like the other database providers.
+
+Maven is  the build tool used to manage dependencies.
 
 Logging is directed to school.log to ensure that the command-line is not cluttered by hibernate activities. This is
 specified in log4j.properties.
