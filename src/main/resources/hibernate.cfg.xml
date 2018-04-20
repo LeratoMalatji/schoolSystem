@@ -1,0 +1,34 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <property name="connection.url">jdbc:sqlite:redi.sqlite</property>
+        <!--<property name="connection.username"></property>-->
+        <!--<property name="connection.password"/>-->
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect must include JAR to specify this dialect -->
+        <property name="hibernate.dialect">com.enigmabridge.hibernate.dialect.SQLiteDialect</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">false</property>
+
+		<!-- The mapping information of entities -->
+        <mapping class="org.redi.backend.Student"/>
+        <mapping class="org.redi.backend.Teacher"/>
+        <mapping class="org.redi.backend.Course"/>
+
+    </session-factory>
+
+</hibernate-configuration>
