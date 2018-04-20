@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
-@Entity
-@Table(name = "courses")
+@Entity //required
+@Table(name = "courses") //if your table is called course, then this is not required!
 public class Course {
     //you can get hibernate to create the id for you
     @Id
