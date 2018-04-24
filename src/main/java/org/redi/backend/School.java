@@ -26,7 +26,7 @@ public class School {
                 System.out.println(s);
             }
             System.out.println("\n----\n");
-            session.getTransaction().commit();
+            session.getTransaction().commit(); //flush happens automatically
         }
         catch (RuntimeException e) {
             if (trans != null) {
@@ -35,7 +35,6 @@ public class School {
             e.printStackTrace();
         }
         finally {
-            session.flush();
             session.close();
         }
     }
@@ -61,7 +60,6 @@ public class School {
             e.printStackTrace();
         }
         finally {
-            session.flush();
             session.close();
         }
     }
@@ -77,6 +75,7 @@ public class School {
                 System.out.println(c);
             }
             System.out.println("\n----\n");
+            
             session.getTransaction().commit();
         }
         catch (RuntimeException e) {
@@ -86,7 +85,6 @@ public class School {
             e.printStackTrace();
         }
         finally {
-            session.flush();
             session.close();
         }
     }
@@ -104,6 +102,7 @@ public class School {
             }
 
             System.out.println("\n----\n");
+            
             session.getTransaction().commit();
         }
         catch (RuntimeException e) {
@@ -113,7 +112,6 @@ public class School {
             e.printStackTrace();
         }
         finally {
-            session.flush();
             session.close();
         }
 
@@ -139,6 +137,7 @@ public class School {
             //preferable to persist() than save(), as it is safer as changes are cascaded to other tables and it can be
             //in a transaction
             session.persist(student);
+            
             session.getTransaction().commit();
             System.out.println("Student saved");
         }
@@ -149,7 +148,6 @@ public class School {
             e.printStackTrace();
         }
         finally {
-            session.flush();
             session.close();
         }
     }
@@ -161,6 +159,7 @@ public class School {
         try {
             trans = session.beginTransaction();
             session.update(student); //assumes there is a row in the table! should check this normally!
+            
             session.getTransaction().commit();
             System.out.println("Student updated");
         } catch (RuntimeException e) {
@@ -169,7 +168,6 @@ public class School {
             }
         }
         finally {
-           session.flush();
            session.close();
         }
     }
@@ -181,6 +179,7 @@ public class School {
             trans = session.beginTransaction();
             Student student = (Student) session.load(Student.class, new Integer(id));
             session.delete(student);
+            
             session.getTransaction().commit();
         } catch (RuntimeException e) {
             if (trans != null) {
@@ -188,7 +187,6 @@ public class School {
             }
             e.printStackTrace();
         } finally {
-            session.flush();
             session.close();
         }
     }
