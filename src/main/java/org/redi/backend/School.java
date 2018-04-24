@@ -26,7 +26,7 @@ public class School {
                 System.out.println(s);
             }
             System.out.println("\n----\n");
-            session.getTransaction().commit(); //flush happens automatically
+            session.getTransaction().commit(); //flush happens automatically when a transaction is used
         }
         catch (RuntimeException e) {
             if (trans != null) {
@@ -35,7 +35,7 @@ public class School {
             e.printStackTrace();
         }
         finally {
-            session.close();
+            session.close(); //must close session yourself
         }
     }
 
