@@ -1,25 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@page import= "org.apache.log4j.Logger" %>
 <!DOCTYPE html>
-
-<%
-
-final  Logger logger = Logger.getLogger(Registration.class);
-
-logger.info("Getting  into the servlet");
-
-%>
-
 <html>
 <head>
+
 <meta charset="UTF-8">
 <title>register</title>
 
 
 <style type="text/css" >
 
- <%@include file="style.css" %>
+<%@include file="style.css" %>
 
 </style>
 
@@ -87,11 +78,11 @@ logger.info("Getting  into the servlet");
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required   >
     <hr>
 
-  
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
     <button type="submit" class="registerbtn">Register</button>
   </div>
   
-  
+  actionResponse.sendRedirect("page2.jsp");
 
   <div class="container signin">
     <p>Already have an account? <a href="login.jsp">Sign in</a>.</p>

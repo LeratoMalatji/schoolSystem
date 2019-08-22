@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity(name = "students") //required to be saved
 public class Student{
+	
     //you can get hibernate to create the id for you. You must use the @id annotation to tell hibernate this is the
     //primary key
     @Id
