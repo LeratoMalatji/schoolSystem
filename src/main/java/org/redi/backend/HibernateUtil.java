@@ -4,8 +4,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-import javax.imageio.spi.ServiceRegistry;
-
 //contains only static methods as it is an utility class. we only want a single instance of sessionfactory for our
 //program
 public class HibernateUtil
