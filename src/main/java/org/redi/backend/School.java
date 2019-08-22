@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import statuses.CurrentStatus;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -276,6 +278,9 @@ public void addCourse(){
             session.persist(student);
             
             session.getTransaction().commit();
+            // changing status to saved if student has been successfully saved
+            student.setStatus(CurrentStatus.Saved.name());
+            
             System.out.println("Student saved");
         }
         catch (RuntimeException e) {
@@ -405,3 +410,4 @@ public void addCourse(){
     }
 
 }
+

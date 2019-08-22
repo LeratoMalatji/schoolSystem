@@ -1,12 +1,17 @@
 package studServlet;
 
+import java.io.IOException;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.redi.backend.School;
+
+import statuses.CurrentStatus;
 
 //@WebServlet("/register")
 public class studentServlet extends HttpServlet{
@@ -74,7 +79,30 @@ public class studentServlet extends HttpServlet{
 		
 		System.out.println("###############################################complete#########################creating");
 		//***********************************************************************************************************************
-	
+		
+		if (student.getStatus().equals(CurrentStatus.Saved.name()))
+		{
+		HttpSession session = req.getSession();
+		session.setAttribute("student", student);
+		
+		try {
+			
+			res.sendRedirect("login.jsp");
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		}
+		else
+		{
+			try {
+				res.sendRedirect("Registration.jsp");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
 		
 		
 	}

@@ -21,6 +21,7 @@ public class Student{
    	private String nationality;
    	private String age;
    	private String password;
+   	private String Status;
 
 	
 	private  Address address = new  Address();
@@ -123,6 +124,15 @@ public class Student{
 
 	public void setContactDetails(ContactDetails contactDetails) {
 		this.contactDetails = contactDetails;
+	}
+
+	
+	public String getStatus() {
+		return Status;
+	}
+
+	public void setStatus(String status) {
+		Status = status;
 	}
 
 	@Override

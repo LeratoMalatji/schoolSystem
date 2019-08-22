@@ -82,7 +82,7 @@
     <button type="submit" class="registerbtn">Register</button>
   </div>
   
-  actionResponse.sendRedirect("page2.jsp");
+ 
 
   <div class="container signin">
     <p>Already have an account? <a href="login.jsp">Sign in</a>.</p>
