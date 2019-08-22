@@ -7,13 +7,15 @@ import java.util.List;
 @Entity(name = "courses") //required to be saved
 public class Course {
     //you can get hibernate to create the id for you
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+	 @Id
     @Column(name = "id", nullable = false, unique = true, length = 11)
-    int id;
+    private int courseId;
 
-    String room;
-    String topic;
+    private String room;
+    private String courseName;
+    private int duration;
 
     @OneToOne
     @JoinColumn(name="id") ///column in teachers table
@@ -21,21 +23,52 @@ public class Course {
 
     int maxStudents;
 
-
     @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "ModuelCourse",
+            joinColumns = { @JoinColumn(name = "courseId") },
+            inverseJoinColumns = { @JoinColumn(name = "moduleId") })
+    List<Module> module = new LinkedList<Module>();
+    
+    
+
+  
+
+	@OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "attends",
             joinColumns = { @JoinColumn(name = "courseId") },
             inverseJoinColumns = { @JoinColumn(name = "studentId") })
     List<Student> students  = new LinkedList<Student>(); //Doesnt work if reference type = LinkedList must use interface
 
+	
     //hibernate requires constructor with no parameters
-    public Course() { }
+    public Course() { 
+    	
+    	
+    }
 
-    public Course(String topic, String room, Teacher teacher, int maxStudents)
+    
+    
+    public List<Module> getModule() {
+		return module;
+	}
+
+
+
+	public void setModule(List<Module> module) {
+	
+		
+		this.module = module;
+		
+	}
+
+
+
+	public Course(int courseId, String courseName,int duration, int maxStudents)
     {
-        this.teacher = teacher;
-        this.room = room;
-        this.topic =  topic;
+    	this.maxStudents=maxStudents;
+    	this.duration=duration;
+       this.courseId=courseId;
+        this.courseName =  courseName;
         this.maxStudents = maxStudents;
     }
 
@@ -45,11 +78,11 @@ public class Course {
     }
 
     public int getId() {
-        return id;
+        return courseId;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.courseId = id;
     }
 
     public String getRoom() {
@@ -61,11 +94,11 @@ public class Course {
     }
 
     public String getTopic() {
-        return topic;
+        return courseName;
     }
 
     public void setTopic(String topic) {
-        this.topic = topic;
+        this.courseName = topic;
     }
 
     public Teacher getTeacher() {
@@ -87,9 +120,9 @@ public class Course {
     @Override
     public String toString() {
         return "Course{" +
-                "id=" + id +
+                "id=" + courseId +
                 ", room='" + room + '\'' +
-                ", topic='" + topic + '\'' +
+                ", topic='" + courseName + '\'' +
                 ", teacher=" + teacher +
                 ", maxStudents=" + maxStudents +
                 ", students=" + students +

@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -64,6 +65,43 @@ public class School {
         }
     }
 
+    
+    //Returns a list of modules from Db
+    public List<Module>  showModules(){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction trans = null;
+        
+        List<Module> modules =new ArrayList<Module>() ;
+        try {
+            trans = session.beginTransaction();
+            modules = session.createCriteria(Module.class).list();
+            
+            System.out.println("\n----\n");
+            
+            for (Module mod : modules) {
+            	
+                System.out.println(mod);
+            }
+            System.out.println("\n----\n");
+            
+            session.getTransaction().commit();
+        }
+        catch (RuntimeException e) {
+            if (trans != null) {
+                trans.rollback();
+            }
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        
+       
+        
+        return modules;
+    }
+    
+    //get All courses from the database
     public void showCourses(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction trans = null;
@@ -123,12 +161,111 @@ public class School {
         String name = in.nextLine();
         showStudentWithNameLike(name);
     }
+    
+    
+public void addCourse(){
+    	
+       // System.out.println("Enter student name:");
+        //Scanner in = new Scanner(System.in);
+        //String name = in.nextLine();
+        //Student student = new Student(name);
 
-    public void addStudent(){
+   
+        for (Course course: preLoader.loadCourse())
+        {
+        				
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction trans = null;
+        try {
+            trans = session.beginTransaction();
+            //preferable to persist() than save(), as it is safer as changes are cascaded to other tables and it can be
+            //in a transaction
+            
+           Module module = new Module(0023,"Art",7533.00,2);
+           Module modules = new Module(0026,"Art",7533.00,2);
+            course.getModule().add(module);
+            course.getModule().add(modules);
+    
+            session.persist(course);
+           session.save(module);
+           session.save(modules);
+           
+         
+            session.getTransaction().commit();
+           
+            
+            System.out.println("module saved ");
+            
+        }
+        catch (RuntimeException e) {
+            if (trans != null) {
+                trans.rollback();
+            }
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        
+        
+        	
+        }//
+        
+    }
+    
+    
+
+    public void addModules(){
+    	
         System.out.println("Enter student name:");
         Scanner in = new Scanner(System.in);
-        String name = in.nextLine();
-        Student student = new Student(name);
+        //String name = in.nextLine();
+        //Student student = new Student(name);
+
+        
+        for (Module module:preLoader.loadModule())
+        {
+        
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction trans = null;
+        try {
+            trans = session.beginTransaction();
+            //preferable to persist() than save(), as it is safer as changes are cascaded to other tables and it can be
+            //in a transaction
+            
+           
+            session.persist(module);
+         
+            session.getTransaction().commit();
+           
+            
+            System.out.println("module saved ");
+            
+        }
+        catch (RuntimeException e) {
+            if (trans != null) {
+                trans.rollback();
+            }
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        
+        
+        }
+        
+        
+    }
+    
+    
+    
+    public void addStudent(Student student){
+        System.out.println("Enter student name:");
+        Scanner in = new Scanner(System.in);
+        //String name = in.nextLine();
+        //Student student = new Student(name);
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction trans = null;
@@ -242,7 +379,7 @@ public class School {
                 askToSearchUser();
             }
             else if(answer.equals("3")){
-                addStudent();
+               // addStudent();
             }
             else if(answer.equals("4")){
                 askToUpdateStudent();
