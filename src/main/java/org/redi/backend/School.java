@@ -1,5 +1,6 @@
 package org.redi.backend;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -11,7 +12,68 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.*;
 public class School {
+	
+	
+	
+	
+	
+	
+	public Student getIdStudents(Student student){
+        Session session = HibernateUtil.getSessionFactory().openSession(); //session is an unit of work to perform
+        //transactions are generally used to create boundaries when performing different actions on a database.
+        // so we can tell the database when we are done and can release a lock when it is an update.
+        // why use a transaction for readonly:
+        // https://stackoverflow.com/questions/13539213/why-do-i-need-transaction-in-hibernate-for-read-only-operation
+        
+        
+        // getting student email adddress
+        String mail = student.getContactDetails().getEmail();
+        Student studentInfo =null;
+        Transaction trans = null;
+        try {
+            trans = session.beginTransaction();
+            
+            
+            // named quary to select a student from the database by address
+            String sql = "SELECT * FROM students WHERE Email = :Email";
+            SQLQuery query = session.createSQLQuery(sql);
+            query.addEntity(Student.class);
+            query.setParameter("Email",mail);
+            List<Student> results = query.list();
+          
+            
+            // retriving the list of student result
+           for (Student stud : results)
+           {
+        	   studentInfo = stud;
+        	   return stud;
+        	  
+           }
+            
+            
+            
+            session.getTransaction().commit();
+            
+            
+            
+            
+        }
+        catch (RuntimeException e) {
+            if (trans != null) {
+                trans.rollback();
+            }
+            e.printStackTrace();
+        }
+        finally {
+            session.close(); //must close session yourself
+        }
+        
+        return studentInfo;
+    }
+	
 
     public void showStudents(){
         Session session = HibernateUtil.getSessionFactory().openSession(); //session is an unit of work to perform
@@ -259,6 +321,33 @@ public void addCourse(){
         }
         
         
+    }
+    
+    public boolean validateUser(Student student)
+    {
+    	Student studentAthenticated = new Student();
+    	Session session = HibernateUtil.getSessionFactory().openSession();
+    	Object obj = session.load(Student.class,new String(student.getContactDetails().getEmail()));
+    	
+    	if (obj !=null)
+    	{
+    		studentAthenticated = (Student)obj;
+    		
+    		System.out.println(studentAthenticated.getContactDetails().getEmail());
+    		System.out.println(studentAthenticated.getPassword());
+    		
+    	}
+    	else 
+    	{
+    		
+    		System.out.println("###########obj is == to null#############");
+    	}
+    	
+    	
+    	
+    	
+    	
+    return true;	
     }
     
     

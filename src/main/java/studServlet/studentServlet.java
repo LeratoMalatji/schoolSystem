@@ -1,8 +1,8 @@
 package studServlet;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,8 +14,9 @@ import org.redi.backend.School;
 import statuses.CurrentStatus;
 
 //@WebServlet("/register")
-public class studentServlet extends HttpServlet{
+public class studentServlet extends HttpServlet {
 	
+	static final long serialVersionUID = 34344343L;
 	final static Logger logger = Logger.getLogger(studentServlet.class);
 	
 	public void service(HttpServletRequest req , HttpServletResponse res)
@@ -86,6 +87,7 @@ public class studentServlet extends HttpServlet{
 		session.setAttribute("student", student);
 		
 		try {
+			logger.info("Calling the login jsp page");
 			
 			res.sendRedirect("login.jsp");
 			

@@ -57,7 +57,7 @@ studentTemp =(Student)session.getAttribute("student");
     <!-- Login Form -->
     <form action="login" method = "post">
     
-      <input type="text" id="login" class="fadeIn second" name="username" placeholder="student number">
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="Email Address">
       <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
