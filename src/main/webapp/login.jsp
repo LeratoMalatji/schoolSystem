@@ -11,7 +11,7 @@
 
 <style type="text/css" >
 
- <%@include file="loginStyle.css" %>
+<%@include file="loginStyle.css" %>
 
 </style>
 
@@ -55,7 +55,7 @@ studentTemp =(Student)session.getAttribute("student");
     </div>
 
     <!-- Login Form -->
-    <form action="login" method = "post">
+    <form action="login" method="get">
     
       <input type="text" id="login" class="fadeIn second" name="username" placeholder="Email Address">
       <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">

@@ -4,13 +4,14 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.redi.backend.School;
+import org.redi.backend.Student;
 
 public class studentCreateTest {
 
 	@Test
 	public void test() {
 		
-System.out.println("S*************************ervlet called************************************************************************ ");
+		System.out.println("S*************************ervlet called************************************************************************ ");
 		
 		org.redi.backend.Student student = new org.redi.backend.Student();
 		org.redi.backend.ContactDetails con = new org.redi.backend.ContactDetails();
@@ -59,7 +60,9 @@ System.out.println("S*************************ervlet called*********************
 		
 		System.out.println("###############################################complete#########################creating");
 		//***********************************************************************************************************************
-		
+	
+		//return student;
 	}
 
+	
 }

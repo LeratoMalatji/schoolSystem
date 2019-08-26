@@ -11,8 +11,13 @@ public class testNAmedQuarySelectById {
 	@Test
 	public void test() {
 		
+		
+		Student s = new Student();
+		s.setPassword("ssdfsf1");
+		s.getContactDetails().setEmail("leratomalatji@ymail.com");
 		School school = new School();
-		school.getIdStudents(new Student());
+		school.getIdStudents(s);
+		
 		
 		
 	}
