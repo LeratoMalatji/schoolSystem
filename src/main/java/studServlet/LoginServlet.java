@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.redi.backend.School;
@@ -44,6 +45,10 @@ public class LoginServlet extends HttpServlet implements Serializable{
 			
 			
 			try {
+				
+			HttpSession session = req.getSession();
+			session.setAttribute("student", student1);
+				
 				res.sendRedirect("Bootslander/index.jsp");
 				System.out.println("trying to call the home page#############################");
 				

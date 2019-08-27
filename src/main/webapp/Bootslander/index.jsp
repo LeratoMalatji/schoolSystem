@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@page import= "org.redi.backend.Student" %>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -6,7 +10,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Bootslander landing page template</title>
+  <title>Pearson Institude</title>
 
   <meta name="keywords" content="" />
   <meta name="description" content="" />
@@ -31,6 +35,22 @@
 
 <body>
 
+<%!
+
+Student studentTemp = new Student();
+
+%>
+<%
+
+
+studentTemp =(Student)session.getAttribute("student");
+
+
+
+%>
+
+
+
   <!-- main wrap -->
   <div class="main-wrap">
 
@@ -47,7 +67,15 @@
           </div>
 
           <div class="phone">
-            <p>Call &#45; 008 009 172</p>
+            <p>LOGGED IN AS  <% 
+            
+            if(studentTemp!=null)
+            {
+            
+            	out.println( studentTemp.getName());
+            	
+           
+            }%></p>
           </div>
         </div>
       </div>
@@ -70,19 +98,19 @@
                   <img class="next" src="img/slides/bt-next.png" alt="Next Frame" />
                   <ul>
                     <li class="animate-in">
-                      <h2 class="title">Fresh design</h2>
-                      <h5 class="subtitle">We always consider with latest web design trends</h5>
-                      <img class="model" src="img/slides/img1.png" alt="" />
+                      <h2 class="title">Welcome to Pearson institude of higer Education</h2>
+                      <h5 class="subtitle">Graduation and innovation in not an option</h5>
+                      <img class="model" src="img/slides/project33.jpg" alt="" />
                     </li>
                     <li>
-                      <h2 class="title">Responsive layout</h2>
-                      <h5 class="subtitle">Degrade from wide screen to mobile screen size</h5>
-                      <img class="model" src="img/slides/img2.png" alt="" />
+                      <h2 class="title">Register now 2019</h2>
+                      <h5 class="subtitle">Get latest campus trands and courses</h5>
+                      <img class="model" src="img/slides/img4.png" alt="" />
                     </li>
                     <li>
-                      <h2 class="title">Built with bootstrap</h2>
-                      <h5 class="subtitle">Supports modern browsers, touch devices and responsive designs</h5>
-                      <img class="model" src="img/slides/img3.png" alt="" />
+                      <h2 class="title">Student life and more on all our remote Campuses</h2>
+                      <h5 class="subtitle">Check latest prospectors</h5>
+                      <img class="model" src="img/slides/project3.jpg" alt="" />
                     </li>
                   </ul>
                 </div>
@@ -110,12 +138,12 @@
         <div class="tagline">
           <div class="wrapper">
             <!--### Subtitle ###-->
-            <h2>Great choice to build application landing page</h2>
+            <h2>Student advicers helping you to make better career choices</h2>
             <!-- CTA -->
             <div class="cta">
               <div class="btn-group">
-                <a href="https://bootstrapmade.com/buy/?template=Bootslander" class="btn btn-green btn-large"><i class="icon-shopping-cart icon-white"></i> Buy this template</a>
-                <a href="https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/#download" class="btn btn-red btn-large">Try demo version</a>
+                <a href="https://bootstrapmade.com/buy/?template=Bootslander" class="btn btn-green btn-large"><i class="icon-shopping-cart icon-white"></i>My Moudle</a>
+                <a href="https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/#download" class="btn btn-red btn-large">Check faculty</a>
               </div>
             </div>
           </div>
@@ -174,7 +202,7 @@
           <!-- recent portfolio -->
           <div class="row-fluid portfolio">
             <div class="headline">
-              <h2><span>Great examples built with bootslander</span></h2></div>
+              <h2><span>Checkout our university mobile application</span></h2></div>
             <ul class="portfolio_list da-thumbs">
 
               <li class="span3">
@@ -262,9 +290,9 @@
     <section id="bottom">
       <div class="bottom-cta">
         <div class="wrapper">
-          <h3 class="title">Don&#96;t miss this special offer! </h3>
-          <h2>Get it now for just $10! the price will be increased after 50 downloads</h2>
-          <a href="#" class="btn btn-red btn-large">Get the latest version of Bootslander</a>
+          <h3 class="title">Our campus</h3>
+          <h2> </h2>
+          <a href="#" class="btn btn-red btn-large">Faculty</a>
         </div>
       </div>
     </section>
@@ -316,10 +344,10 @@
                 <h5 class="widgetheading">Contact information<span></span></h5>
 
                 <ul class="contact-info">
-                  <li><label>Address :</label> Tinggi sekali tower Jl.Kemacetan timur<br /> Jakarta selatan - Indonesia</li>
-                  <li><label>Phone :</label>+62 123 456 78 / +62 123 456 79</li>
-                  <li><label>Fax : </label>+62 123 456 10 / +62 123 456 11</li>
-                  <li><label>Email : </label> info@yourdomain.com</li>
+                  <li><label>Address :</label> 22 Ixai road primrose<br /> Midrand</li>
+                  <li><label>Phone :</label>011 873 1867</li>
+                  <li><label>Fax : </label>+62 123 456 10 </li>
+                  <li><label>Email : </label> info@PersonInstitude.co.za</li>
                 </ul>
 
               </div>
