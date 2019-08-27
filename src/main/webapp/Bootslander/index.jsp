@@ -26,10 +26,7 @@
   <link rel="shortcut icon" href="img/favicon.ico">
 
   <!-- =======================================================
-    Theme Name: Bootslander
-    Theme URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
-    Author: BootstrapMade.com
-    Author URL: https://bootstrapmade.com
+   
 	======================================================= -->
 </head>
 
@@ -49,6 +46,7 @@ studentTemp =(Student)session.getAttribute("student");
 
 %>
 
+ <a Class = "w3-bar-item w3-button active" href="updateProfile.jsp" title="Update_Profile">Profile</a> 
 
 
   <!-- main wrap -->
@@ -142,7 +140,7 @@ studentTemp =(Student)session.getAttribute("student");
             <!-- CTA -->
             <div class="cta">
               <div class="btn-group">
-                <a href="https://bootstrapmade.com/buy/?template=Bootslander" class="btn btn-green btn-large"><i class="icon-shopping-cart icon-white"></i>My Moudle</a>
+                <a href="updateProfile.jsp" class="btn btn-green btn-large"><i class="icon-shopping-cart icon-white"></i>Profile</a>
                 <a href="https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/#download" class="btn btn-red btn-large">Check faculty</a>
               </div>
             </div>
@@ -252,7 +250,7 @@ studentTemp =(Student)session.getAttribute("student");
                 <div class="testimonial">
                   <img src="img/dummies/user-1.png" alt="" class="img-circle" />
                   <p>
-                    &ldquo;Lorem ipsum dolor sit amet, veritus molestie et his. Summo dissentiet duo an. Et duo vitae atomorum, eripuit eruditi definitiones nec ut.&rdquo;
+                    &ldquo;Student advisors are at the heart of our student support services. Every campus has a team of dedicated Student Advisors. They are there to support you on your learning journey from enrolment right through to graduation. Your allocated Student Advisor is there to assist with general queries or difficulties you may be experiencing. I.&rdquo;
                   </p>
                   <span>&#45;&#45; Mike lamouz, <a href="#">Net designer</a></span>
                 </div>
@@ -261,7 +259,7 @@ studentTemp =(Student)session.getAttribute("student");
                 <div class="testimonial">
                   <img src="img/dummies/user-2.png" alt="" class="img-circle" />
                   <p>
-                    &ldquo;Lorem ipsum dolor sit amet, veritus molestie et his. Summo dissentiet duo an. Et duo vitae atomorum, eripuit eruditi definitiones nec ut.&rdquo;
+                    &ldquo;Student advisors are at the heart of our student support services. Every campus has a team of dedicated Student Advisors. They are there to support you on your learning journey from enrolment right through to graduation. Your allocated Student Advisor is there to assist with general queries or difficulties you may be experiencing. I.&rdquo;
                   </p>
                   <span>&#45;&#45; Leslie samarov, <a href="#">JIK Company</a></span>
                 </div>
@@ -270,7 +268,7 @@ studentTemp =(Student)session.getAttribute("student");
                 <div class="testimonial">
                   <img src="img/dummies/user-3.png" alt="" class="img-circle" />
                   <p>
-                    &ldquo;Lorem ipsum dolor sit amet, veritus molestie et his. Summo dissentiet duo an. Et duo vitae atomorum, eripuit eruditi definitiones nec ut.&rdquo;
+                    &ldquo;Student advisors are at the heart of our student support services. Every campus has a team of dedicated Student Advisors. They are there to support you on your learning journey from enrolment right through to graduation. Your allocated Student Advisor is there to assist with general queries or difficulties you may be experiencing. I.&rdquo;
                   </p>
                   <span>&#45;&#45; Jonathan does, <a href="#">App Studio</a></span>
                 </div>
@@ -376,13 +374,8 @@ studentTemp =(Student)session.getAttribute("student");
 
           </div>
           <div class="credits">
-            <!--
-              All the links in the footer should remain intact.
-              You can delete the links only if you purchased the pro version.
-              Licensing information: https://bootstrapmade.com/license/
-              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Bootslander
-            -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+           
+            Designed by <a href="https://bootstrapmade.com/">Leratomalatji</a>
           </div>
         </div>
       </div>

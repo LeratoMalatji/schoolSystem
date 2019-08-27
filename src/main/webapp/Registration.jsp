@@ -17,7 +17,6 @@
 </head>
 <body>
 
-
  <form action="register" method = "post">
   <div class="container">
     <h1>Register</h1>

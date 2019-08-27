@@ -22,6 +22,7 @@ public class Student{
    	private String age;
    	private String password;
    	private String Status;
+   	private String IDdoc;
 
 	
 	private  Address address = new  Address();
@@ -133,6 +134,16 @@ public class Student{
 
 	public void setStatus(String status) {
 		Status = status;
+	}
+	
+	
+
+	public String getIDdoc() {
+		return IDdoc;
+	}
+
+	public void setIDdoc(String iDdoc) {
+		IDdoc = iDdoc;
 	}
 
 	@Override

@@ -37,6 +37,7 @@ public class studentServlet extends HttpServlet {
 		student.setAge(req.getParameter("age").toLowerCase());
 		student.setNationality(req.getParameter("nationality").toLowerCase());
 		student.setRace(req.getParameter("race").toLowerCase());
+		student.setRace(req.getParameter("ID").toLowerCase());
 		System.out.println("###############################################started#########################creating");
 		
 		if (req.getParameter("password").equals(req.getParameter("psw-repeat")))
