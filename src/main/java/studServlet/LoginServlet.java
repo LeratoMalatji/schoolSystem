@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.redi.backend.School;
 import org.redi.backend.Student;
+import org.redi.backend.preLoader;
 
 import statuses.CurrentStatus;
 
@@ -24,6 +25,19 @@ public class LoginServlet extends HttpServlet implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	final static Logger logger = Logger.getLogger(LoginServlet.class);
+	
+	
+	static {
+	
+		// preloading modules to the database 
+		
+		School school = new School();
+		school.addCourse();
+		school.addModules();
+		
+	}
+	
+	
 	
 	public void doGet(HttpServletRequest req , HttpServletResponse res)
 	{

@@ -19,6 +19,8 @@ public class UpdateProfileServlet extends HttpServlet {
 		
 		School school = new School();
 		
+		
+		// check if the filds contain a input that the user has changed .
 		if (req.getParameter("ID")!=null )
 		{
 			student.setIDdoc(req.getParameter("ID"));

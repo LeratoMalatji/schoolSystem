@@ -240,20 +240,13 @@ public class School {
 				// preferable to persist() than save(), as it is safer as changes are cascaded
 				// to other tables and it can be
 				// in a transaction
-
-				Module module = new Module(0023, "Art", 7533.00, 2);
-				Module modules = new Module(0026, "Art", 7533.00, 2);
-				course.getModule().add(module);
-				course.getModule().add(modules);
-
+			
 				session.persist(course);
-				session.save(module);
-				session.save(modules);
-
+				
 				session.getTransaction().commit();
 
 				System.out.println("module saved ");
-
+				
 			} catch (RuntimeException e) {
 				if (trans != null) {
 					trans.rollback();
