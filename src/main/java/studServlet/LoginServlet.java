@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet implements Serializable{
 	private static final long serialVersionUID = 1L;
 	final static Logger logger = Logger.getLogger(LoginServlet.class);
 	
-	
+	//static block
 	static {
 	
 		// preloading modules to the database 
