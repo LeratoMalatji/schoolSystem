@@ -217,11 +217,12 @@ public class School {
 
 	}
 
-	public void askToSearchUser() {
-		System.out.println("Enter name:");
-		Scanner in = new Scanner(System.in);
-		String name = in.nextLine();
-		showStudentWithNameLike(name);
+	public void askToSearchUser(Student student) {
+		
+
+		
+		String Name = student.getName();
+		showStudentWithNameLike(Name);
 	}
 
 	public void addCourse() {
@@ -383,11 +384,18 @@ public class School {
 		}
 	}
 
-	public void askToDeleteStudent() {
+	public void askToDeleteStudent(Student student) {
 		showStudents();
-		System.out.println("Enter id:");
+
+		
+		System.out.println("My current student Id");
+		
+		System.out.println("Enter student number to delete/n");
+		
+		System.out.print("Enter id:");
 		Scanner in = new Scanner(System.in);
 		int id = in.nextInt();
+		
 		deleteStudent(id);
 	}
 
@@ -430,13 +438,13 @@ public class School {
 			if (answer.equals("1")) {
 				showStudents();
 			} else if (answer.equals("2")) {
-				askToSearchUser();
+			
 			} else if (answer.equals("3")) {
 				// addStudent();
 			} else if (answer.equals("4")) {
 				askToUpdateStudent();
 			} else if (answer.equals("5")) {
-				askToDeleteStudent();
+				
 			} else if (answer.equals("6")) {
 				showTeachers();
 			} else if (answer.equals("7")) {
